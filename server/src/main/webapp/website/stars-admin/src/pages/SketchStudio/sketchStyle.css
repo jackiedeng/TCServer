@@ -1,0 +1,40 @@
+.sketch-space{
+
+    border: 1px solid #ddd;
+    background: #8cc8ff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.draw-space{
+
+    margin:10px;
+
+}
+
+.sketch-play-ground{
+
+    display:flex;
+
+}
+
+.sketch-preview-space{
+
+    display:flex;
+    flex-direction: column;
+    margin:5px;
+
+}
+
+.sketch-tool-bar{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: center;
+}

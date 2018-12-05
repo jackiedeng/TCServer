@@ -1,0 +1,30 @@
+
+{
+
+  "numberOfcrawler":100,
+
+  "enable":false,
+
+  "storageFolderName":"/dump/6/jackiedeng/Storage",
+
+  "storageFolderName2":"/Users/chaodeng/Desktop/Playground",
+
+  "storageFolderName3":"/Users/jackiedeng/Desktop/Learning/Files",
+
+  "pattern":[".jpg",".JPG",".png",".PNG"],
+
+  "maxPageCount":4,
+
+  "maxWordCount":0,
+  "seeds":[
+    "简约装修","日式装修","北欧装修","家装","装修","客厅","卧室","二手房装修","客厅装修","卧室装修","室内装修","现代装修","装修案例","电视背景","毛胚房","空房","精装修空房","精装修房间"
+  ],
+
+  "maxTotalConnections":100,
+
+  "maxConnectionsPerHost":100,
+
+  "politenessDelay":100,
+
+  "connectionTimeout":20000
+}

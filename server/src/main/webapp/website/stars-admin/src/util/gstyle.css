@@ -1,0 +1,17 @@
+
+.g-text-button:hover{
+    color: #41BBFD;
+    border: 1px #41BBFD solid;
+}
+
+.g-text-button{
+    color: #3A9EED;
+    cursor:pointer;
+    font-size: 14px;
+    word-break: break-all;
+    display: inline;
+    border: 1px #ddd solid;
+    padding: 5px;
+    margin: 10px;
+
+}

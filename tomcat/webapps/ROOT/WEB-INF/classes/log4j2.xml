@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF" monitorInterval="60">
+        <Properties>
+            <Property name="LOG_HOME">/dump/6/jackiedeng/Logs</Property>
+    <!--        <Property name="LOG_HOME">/Users/chaodeng/Desktop/Playground</Property>-->
+    <!--        <Property name="LOG_HOME">/Users/jackiedeng/Desktop/Learning/Files</Property>-->
+
+            <Property name="log.layout">%d %-5p %t (%c:%L) - %m%n</Property>
+           
+        </Properties>
+
+    <Appenders>
+        <!--这个输出控制台的配置-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+
+        <!-- 设置日志格式并配置日志压缩格式(service_client.log.年份.gz) -->
+        <RollingFile name="service_debug_appender"
+                                 immediateFlush="true" fileName="${LOG_HOME}/debug.log"
+                                 filePattern="${LOG_HOME}/debug.log.%d{yyyy-MM-dd}.log.gz">
+            <!--
+                %d{yyyy-MM-dd HH:mm:ss, SSS} : 日志生产时间
+                %p : 日志输出格式
+                %c : logger的名称
+                %m : 日志内容，即 logger.info("message")
+                %n : 换行符
+                %C : Java类名
+                %L : 日志输出所在行数
+                %M : 日志输出所在方法名
+                hostName : 本地机器名
+                hostAddress : 本地ip地址
+             -->
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M -- %msg%xEx%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <SizeBasedTriggeringPolicy size="100 MB" />
+        </RollingFile>
+
+
+        <!-- DEBUG日志格式 -->
+        <RollingFile name="service_biz_appender"
+                                 immediateFlush="true" fileName="${LOG_HOME}/biz.log"
+                                 filePattern="${LOG_HOME}/debug.log.%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level > %msg%xEx%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <SizeBasedTriggeringPolicy size="100 MB" />
+        </RollingFile>
+
+        <!-- findseed日志格式 -->
+        <RollingFile name="service_seed_appender"
+                     immediateFlush="true" fileName="${LOG_HOME}/seed.log"
+                     filePattern="${LOG_HOME}/seed.log.%d{yyyy-MM-dd}.seed.gz">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M -- %msg%xEx%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <SizeBasedTriggeringPolicy size="100 MB" />
+        </RollingFile>
+
+        <!-- findseed日志格式 -->
+        <RollingFile name="service_exception_appender"
+                     immediateFlush="true" fileName="${LOG_HOME}/exception.log"
+                     filePattern="${LOG_HOME}/exception.log.%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} > %msg%xEx%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <SizeBasedTriggeringPolicy size="100 MB" />
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Logger name="Debug" level="info" additivity="false">
+            <AppenderRef ref="service_debug_appender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="Biz" level="info" additivity="false">
+            <AppenderRef ref="service_biz_appender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="Seed" level="info" additivity="false">
+            <AppenderRef ref="service_seed_appender"/>
+        </Logger>
+
+        <Logger name="Exception" level="info" additivity="false">
+            <AppenderRef ref="service_exception_appender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+
+</configuration>

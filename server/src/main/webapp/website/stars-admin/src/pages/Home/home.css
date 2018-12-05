@@ -1,0 +1,10 @@
+
+.home-tool-bar{
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
