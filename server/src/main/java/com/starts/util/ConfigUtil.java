@@ -33,9 +33,7 @@ public class ConfigUtil {
 
         JSONObject json = new JSONObject(result);
 
-//        public static String storageFolderName = "/Users/Jackie/Desktop/crawFiles";
-//        FileSaveService.storageFolderName = json.getString("storageFolderName");
-        FileSaveService.storageFolderName = json.getString("storageFolderName3");
+        FileSaveService.storageFolderName = json.getString("storageFolderName");
         //文件后缀
         StartCrawlConfig.pattern = ConfigUtil.toStringArray(json.getJSONArray("pattern"));
 //        //最大的翻页数

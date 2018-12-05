@@ -3,7 +3,7 @@
         <Properties>
     <!--        <Property name="LOG_HOME">/dump/6/jackiedeng/Logs</Property>-->
     <!--        <Property name="LOG_HOME">/Users/chaodeng/Desktop/Playground</Property>-->
-            <Property name="LOG_HOME">/Users/jackiedeng/Desktop/Learning/Files</Property>
+            <Property name="LOG_HOME">/Users/Jackie/Desktop/Playground</Property>
 
             <Property name="log.layout">%d %-5p %t (%c:%L) - %m%n</Property>
            

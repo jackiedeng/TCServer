@@ -7,6 +7,7 @@ import com.tcserver.mvc.tcDO.ListDO;
 import lombok.Data;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,9 +17,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @Controller
+@CrossOrigin
 public class TCListController {
 
-    @RequestMapping(value = "/tcserver/list.do", produces = MediaType.TEXT_HTML_VALUE, method = RequestMethod.GET)
+    @RequestMapping(value = "/tcserver/list.do", method = RequestMethod.GET)
     @ResponseBody
     public String getHtmlBody() throws IOException {
 

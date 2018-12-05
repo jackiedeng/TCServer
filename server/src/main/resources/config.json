@@ -5,11 +5,7 @@
 
   "enable":false,
 
-  "storageFolderName":"/dump/6/jackiedeng/Storage",
-
-  "storageFolderName2":"/Users/chaodeng/Desktop/Playground",
-
-  "storageFolderName3":"/Users/jackiedeng/Desktop/Learning/Files",
+  "storageFolderName":"/Users/Jackie/Desktop/Playground",
 
   "pattern":[".jpg",".JPG",".png",".PNG"],
 

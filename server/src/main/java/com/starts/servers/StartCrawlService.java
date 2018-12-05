@@ -81,14 +81,12 @@ public class StartCrawlService implements InitializingBean,Runnable {
             e.printStackTrace();
         }
 
-        if(!StartCrawlConfig.enable){
-            LogUtil.biz.warn("爬虫关闭！！！");
-            return;
-        }
+
 //        常驻
         while (true){
 
             try {
+
 
                 try {
                     taskStatusCheck();
@@ -111,7 +109,10 @@ public class StartCrawlService implements InitializingBean,Runnable {
 
     synchronized private void taskStatusCheck() throws Exception {
 
-
+        if(!StartCrawlConfig.enable){
+            LogUtil.biz.warn("爬虫关闭！！！");
+            return;
+        }
 
         LogUtil.debug.info("{}开始日常任务状态检查",Thread.currentThread().getName());
 
